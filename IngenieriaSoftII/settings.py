@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'IngenieriaSoftII.wsgi.application'
 heroku = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dcior9cvenq48h',
-        'USER': 'sdngmybhulcpie',
-        'PASSWORD': 'XPUZr5SfHDGAsGk0kXwsDVzzSz',
-        'HOST': 'ec2-23-21-166-22.compute-1.amazonaws.com',
+        'NAME': 'dca1da294j3gbk',
+        'USER': 'wkpnqxemmjqiwq',
+        'PASSWORD': 'N9mEALHc7zxqR_-rFTDKLE0YAu',
+        'HOST': 'ec2-23-21-167-249.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
