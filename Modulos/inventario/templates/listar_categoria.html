@@ -1,0 +1,30 @@
+{% extends 'pagina_maestra.html' %}
+{% block titulo %}
+    :: Lista de categoria ::
+{% endblock %}
+
+{% block contenido %}
+    <table class="table table-bordered table-responsive table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>categoria</th>
+            <th>opciones</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for categoria in categorias %}
+            <tr>
+                <td>{{ categoria.id }}</td>
+                <td>{{ categoria.nombre }}</td>
+
+                <td>
+                    <a href="{% url 'productos_categoria' categoria.id %}" class="btn btn-success">Ver productos</a>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

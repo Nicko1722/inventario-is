@@ -1,0 +1,29 @@
+{% extends 'pagina_maestra.html' %}
+{% block titulo %}
+    :: Lista de proveedores ::
+{% endblock %}
+
+{% block contenido %}
+    <table class="table table-bordered table-responsive table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>proveedor</th>
+            <th>opciones</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for provedor in provedores %}
+            <tr>
+                <td>{{ provedor.id }}</td>
+                <td>{{ provedor.nombre }}</td>
+
+                <td>
+                    <a href="{% url 'productos_provedor' provedor.id %}" class="btn btn-success">Ver productos</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

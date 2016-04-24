@@ -1,0 +1,33 @@
+{% extends 'pagina_maestra.html' %}
+{% block titulo %}
+    :: Lista de salidas ::
+{% endblock %}
+
+{% block contenido %}
+ <table class="table table-bordered table-responsive table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>producto</th>
+                                <th>Fecha</th>
+                                <th>Unidades</th>
+                                <th>Categoria</th>
+                                <th>Proveedor</th>
+                                <th>Conceptos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for salidas in salida %}
+                            <tr>
+                                <td>{{ salidas.usuario }}</td>
+                                <td>{{ salidas.producto.nombre }}</td>
+                                <td>{{ salidas.fecha }}</td>
+                                <td>{{ salidas.unidades }}</td>
+                                <td>{{ salidas.producto.categoria }}</td>
+                                <td>{{ salidas.producto.provedor }}</td>
+                                <td>{{ salidas.get_conceptos_display }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+{% endblock %}

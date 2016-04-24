@@ -1,0 +1,34 @@
+{% extends 'pagina_maestra.html' %}
+{% block titulo %}
+    :: Lista de Productos ::
+{% endblock %}
+
+{% block contenido %}
+ <table class="table table-bordered table-responsive table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>producto</th>
+                                <th>categoria</th>
+                                <th>proveedor</th>
+                                <th>unidades</th>
+                                <th>opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for producto in productos %}
+                            <tr>
+                                <td>{{ producto.id }}</td>
+                                <td>{{ producto.nombre }}</td>
+                                <td>{{ producto.categoria }}</td>
+                                <td>{{ producto.provedor }}</td>
+                                <td>{{ producto.unidades }}</td>
+                                <td>
+                                    <a href="{% url 'nueva_entrada' producto.id %}" class="btn btn-success btn-xs">Entrada</a>
+                                    <a href="{% url 'nueva_salida' producto.id %}" class="btn btn-danger btn-xs">Salida</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+{% endblock %}

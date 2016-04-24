@@ -1,0 +1,41 @@
+{% extends 'pagina_maestra.html' %}
+{% block titulo %}
+    :: {{ titulo }} ::
+{% endblock %}
+
+{% block contenido %}
+    {% load widget_tweaks %}
+    <div class="col-md-6 col-md-offset-3" align="center">
+        <form method="post">{% csrf_token %}
+            {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {% if unidades > 0 %}
+                        el producto no cuenta con las unidades necesarias, solo puede sacar
+                        <strong style="color: blue">{{ unidades }}</strong> unidades. de
+                        <strong style="color: green">{{ data }}</strong> unidades que desea sacar.
+                    {% else %}
+                        El <strong>Producto</strong> no esta disponible, tiene <strong>0</strong> unidades
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="row">
+                {% for field in form %}
+                    <div class="col-md-6">
+                        <div class="form-group" align="center">
+                            <strong>
+                                {{ field.label }}
+                                <span style="font-size: 10px; color: #ff485e">{{ field.errors }}</span>
+                            </strong>
+                            {% render_field field class="form-control" %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-success" align="center">
+                Guardar <i class="glyphicon glyphicon-floppy-saved"></i>
+            </button>
+        </form>
+    </div>
+
+
+{% endblock %}
